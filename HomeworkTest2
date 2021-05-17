@@ -1,0 +1,19 @@
+package com.heewon.chapter3;
+
+public class HomeWorkTest2 {
+	public static void main(String[] args) {
+		
+		int a = 20;
+		int b = 35;
+		
+		int FirstN = a + 100;
+		int SecondN = b % 10;
+		
+		System.out.println(FirstN);
+		System.out.println(SecondN);
+		
+		
+	}
+	
+	
+}
