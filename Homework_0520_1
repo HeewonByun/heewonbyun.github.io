@@ -1,0 +1,32 @@
+package com.heewon.arraypowstring;
+
+import java.util.Scanner;
+
+public class Homework0520_1 {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("N값을 입력하세요.");
+	
+		int num = sc.nextInt();
+		int sum = 0;
+		int cnt = 0;
+		
+		
+		for(int i=1; i<num; i++)
+		{
+			if(i%2 ==1)
+			{
+				sum += i;
+				cnt += 1;
+			}
+		
+		}
+		
+		System.out.println("합계: " + sum);
+		System.out.println("갯수: " + cnt);
+	}
+
+}
