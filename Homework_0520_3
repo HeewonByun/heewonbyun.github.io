@@ -1,0 +1,26 @@
+package com.heewon.arraypowstring;
+
+import java.util.Scanner;
+
+public class Homework0520_3 {
+
+	public static void main(String[] args) {
+
+Scanner sc = new Scanner(System.in);
+		
+		 System.out.println("자연수 N값을 입력하세요.");
+	
+		int a = sc.nextInt();
+		int b = 1;
+		
+	 for (int i = 0; i < a; i++) {
+		 for(int j = 0; j < a; j++) {
+			 System.out.printf(b + " ");
+			 b = (b+2)%10;
+		 }
+		 System.out.println();
+	 }
+		
+	}
+
+}
