@@ -1,0 +1,28 @@
+package com.heewon.weekend1;
+
+import java.util.Scanner;
+
+public class Homework0521_1 {
+
+	public static void main(String[] args) {
+
+//		자연수 n( 3<+ n <+ 10)을 입력받아 다음과 같이
+//		영문자를 출력하는 프로그램을 작성하시오.
+
+		int n;
+		char tmp = 'A';
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("자연수를 입력해주세요.");
+		n = sc.nextInt();
+		
+		for (int i = 0; i < n; i++) {
+			for (int j = 1; j <= n - i; j++) {
+				System.out.printf("%c", tmp);
+				tmp++;
+			}
+			System.out.println();
+		}
+	}
+
+}
