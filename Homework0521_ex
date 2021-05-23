@@ -1,0 +1,64 @@
+package ex.day8;
+
+import java.util.Scanner;
+import java.util.Arrays;
+
+
+public class StudentMain {
+	 public static void main(String[] args) {
+		
+		//2명 학생의 수학 과학 영어 과목 처리.
+			// /sum 명령을 내리면 통계를 출력: 과목별 합산/평균
+				
+//				 홍길동/3/구로구/90/92
+//				 1/10
+//				 
+//				 
+//				 /sum
+//				 수학: 900/520
+//				 과학: 750/500
+		 
+		 
+		 		Scanner scanner = new Scanner(System.in);
+		 		Student[] students = new Student[10];
+		 		System.out.println("학생성적을 입력하세요.");
+		 		
+		 		int mathSum = 0;
+		 		int sciSum = 0;
+		 		int engSum = 0;
+		 		
+		 		for (int i = 0; i < 10; i++) {
+		 			students[i] = new Student();
+		 			students[i].score = new Score[3];
+
+		 			for (int j = 0; j < 3; j++) {
+		 				students[i].score[j] = new Score();
+		 			}
+		 			
+		 			String str = scanner.nextLine();
+		 			students[i].studentName = str.split("/")[0];
+		 			students[i].grade = Integer.parseInt(str.split("/")[1]);
+		 			students[i].address = str.split("/")[2];
+		 			students[i].score[0].subject = "수학";
+		 			students[i].score[0].score = Integer.parseInt(str.split("/")[3]);
+		 			mathSum += students[i].score[0].score;
+		 			students[i].score[1].subject = "과학";
+		 			students[i].score[1].score = Integer.parseInt(str.split("/")[4]);
+		 			sciSum += students[i].score[1].score;
+		 			students[i].score[2].subject = "영어";
+		 			students[i].score[2].score = Integer.parseInt(str.split("/")[5]);
+		 			engSum += students[i].score[2].score;
+		 			
+		 			System.out.println((i + 1) + "/10");
+		 		}
+		 		
+		 		String msg = scanner.nextLine();
+		 		if (msg.equals("/sum")) {
+		 			System.out.println("수학: " + mathSum + "/" + (mathSum / 10));
+		 			System.out.println("과학: " + sciSum + "/" + (sciSum / 10));
+		 			System.out.println("영어: " + engSum + "/" + (engSum / 10));
+		 		}
+		 	}
+		 
+		 
+		 
