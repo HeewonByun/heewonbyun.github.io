@@ -1,0 +1,216 @@
+임베디드 시스템(영어: embedded system, 내장형 시스템)은 기계나 기타 제어가 필요한 시스템에 대해,
+제어를 위한 특정 기능을 수행하는 컴퓨터 시스템으로 장치 내에 존재하는 전자 시스템이다. 
+ eg. 리모콘, 휴대폰, 자동차, 게임기, 카메라, 청소기 등 각종 디바이스
+ C언어 주로 사용.
+ 
+
+인터페이스, 상속, 클래스 부분의  강의 진도관련 예제 연습.
+ 임베디드 적용.
+
+
+************ 스마트폰 . 부팅로고 띄우기 ************
+public abstract class SmartPhone {
+	public String name;
+
+	public SmartPhone(String name) {
+		this.name = name;
+	}
+
+	public void powerOn() {
+		System.out.println("SmartPhone Power On");
+	}
+
+	public void powerOff() {
+		System.out.println("SmartPhone Power Off");
+	}
+	
+	public abstract void bootingLogo(); // 스마트폰 업그레이드! 이 기능 무조건 넣어야 함!
+
+}
+
+
+
+************ TV 관련 ************
+
+public class Tv {
+	String company = "";
+	String yymmdd = "";
+	String name = "";
+	String color = "";
+	
+	public Tv() {
+		super();
+		// TODO Auto-generated constructor stub
+		System.out.println("Tv default constructor is call.");
+	}
+
+	public Tv(String company) {
+		super();
+		this.company = company;
+		System.out.println("Tv constructor param1 is call.");
+	}
+
+	public Tv(String company, String yymmdd) {
+		super();
+		this.company = company;
+		this.yymmdd = yymmdd;
+		System.out.println("Tv constructor param2 is call.");
+	}
+
+	public Tv(String company, String yymmdd, String name) {
+		super();
+		this.company = company;
+		this.yymmdd = yymmdd;
+		this.name = name;
+		System.out.println("Tv constructor param3 is call.");
+	}
+
+	public Tv(String company, String yymmdd, String name, String color) {
+		super();
+		this.company = company;
+		this.yymmdd = yymmdd;
+		this.name = name;
+		this.color = color;
+		System.out.println("Tv constructor param4 is call.");
+	}
+	
+  
+  
+  ************TV 관련 예제-  클래스 파트************
+  
+  public class TvConstructorOverloadingTest {
+	public static void main(String[] args) {
+		Tv tv = new Tv();
+
+		Tv tv2 = new Tv("SAMSUNG");
+		Tv tv3 = new Tv("LG", "1999.01.20");
+		Tv tv4 = new Tv("ANAM", "2021.01.20", "OLED TV");
+		Tv tv5 = new Tv("SAMSUNG", "2021.01.20", "Super OLED TV", "Black");
+
+		System.out.println("tv value is [" + tv.company + "]");
+		System.out.println("tv value is [" + tv.yymmdd + "]");
+		System.out.println("tv value is [" + tv.name + "]");
+		System.out.println("tv value is [" + tv.color + "]");
+		System.out.println("----------------------------------");
+		System.out.println("tv2 value is [" + tv2.company + "]");
+		System.out.println("tv2 value is [" + tv2.yymmdd + "]");
+		System.out.println("tv2 value is [" + tv2.name + "]");
+		System.out.println("tv2 value is [" + tv2.color + "]");
+		System.out.println("----------------------------------");
+		System.out.println("tv3 value is [" + tv3.company + "]");
+		System.out.println("tv3 value is [" + tv3.yymmdd + "]");
+		System.out.println("tv3 value is [" + tv3.name + "]");
+		System.out.println("tv3 value is [" + tv3.color + "]");
+		System.out.println("----------------------------------");
+		System.out.println("tv4 value is [" + tv4.company + "]");
+		System.out.println("tv4 value is [" + tv4.yymmdd + "]");
+		System.out.println("tv4 value is [" + tv4.name + "]");
+		System.out.println("tv4 value is [" + tv4.color + "]");
+		System.out.println("----------------------------------");
+		System.out.println("tv5 value is [" + tv5.company + "]");
+		System.out.println("tv5 value is [" + tv5.yymmdd + "]");
+		System.out.println("tv5 value is [" + tv5.name + "]");
+		System.out.println("tv5 value is [" + tv5.color + "]");
+		System.out.println("----------------------------------");
+
+	}
+
+}
+
+
+
+----------------------
+************삼성 휴대폰************
+
+public class SamSungPhone extends SmartPhone {
+
+	public SamSungPhone(String name) {
+		super(name);
+		// TODO Auto-generated constructor stub
+	}
+	
+	public void quckPowerOn() { // 삼성의 신기능 입니다.
+		System.out.println("SamSung quick PowerOn");
+	}
+
+	@Override
+	public void bootingLogo() {
+		// TODO Auto-generated method stub
+		System.out.println("SamSung Logo is Visible....");
+		
+	}
+
+}
+
+
+-------------------------------------------------
+
+
+************라디오 - 인터페이스************
+
+
+public class Radio implements RemoCon {  //실무에선 줄여서 '임플'이라고 한다. 구현!
+	 //업계에서 구현이라 함은 실제로 만들어야하는 것. 내가 재정의 된 애들은 실제 만들어서 코드를 넣을거야.라는 뜻임.
+
+
+	@Override  //재정의
+	public void setOn() {
+		// TODO Auto-generated method stub
+		System.out.println("Radio setOn"); //이 안이 실제 동작이고 구현. 몇 천줄이 될 수도 있음.
+	}
+
+	@Override  //재정의
+	public void setOff() {
+		// TODO Auto-generated method stub
+		System.out.println("Radio setOFF");
+		
+	} 
+  
+  
+ ************라디오 클래스************
+  
+  
+  public class RadioStaticTest {
+	public static void main(String[] args) {
+//		System.out.println("Radio.name value is ["+Radio.name+"]");
+//		Radio.onQuickRadio();
+
+		System.out.println("SuperRadio.pInfo value is [" + SuperRadio.pInfo + "]");
+
+	}
+
+}
+
+
+  -------------------------------------------
+  ************ 라디오 리모콘 - 인터페이스 ************
+   
+   public class InterfaceTest {
+	public static void main(String[] args) {
+		RemoCon remoCon;
+		remoCon = new Radio(); // 인터페이스를 선언하고, 선언된 인터페이스에 객체를 생성해서 넣습니다.
+		//리모컨 안에다 라디오 객체를 넣어야. 그리고 그렇게 사용.
+		
+//		Remocon remocon = new Radio(); 로 줄일 수 있다. 줄여서 많이 사용함.
+		
+		remoCon.setOn(); // 재정의된 메소드의 호출
+		remoCon.setInfoMenu(); //재정의된 메소드의 호출
+		System.out.println("remoCon.PRODUCT_ID value is [" + remoCon.PRODUCT_ID +"]" );
+	
+		RemoCon.alertError(); // static method의 호출. static으로 들어가는 애들은 글자체가 이탤릭으로 뉘어있음.
+		
+		System.out.println("------------------------");
+		
+		RemoCon remoConTwo = new Tv();
+		remoConTwo.setOn();
+		remoConTwo.setOff();
+		remoConTwo.setInfoMenu();
+		
+		RemoCon.alertError();
+		
+		
+		
+		
+	}
+}
+
